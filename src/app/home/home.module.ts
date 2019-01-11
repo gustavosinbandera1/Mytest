@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../materialModule/material.module';
+import { MaterialModule } from '../_materialModule/material.module';
 import { HomePage } from './home.page';
 
 @NgModule({
