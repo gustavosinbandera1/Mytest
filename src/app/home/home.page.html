@@ -5,5 +5,12 @@
 </ion-header>
 
 <ion-content>
-
+  <h2>Customers</h2>
+  <ul>
+    <li *ngFor="let c of films">
+      <div style='height: 100px;'>
+      {{ c.title }} - {{ c.director }}
+    </div>
+    </li>
+  </ul>
 </ion-content>

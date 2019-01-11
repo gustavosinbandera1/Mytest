@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { StartWarsService } from '../_services/start-wars.service';
-import { Observable, of, throwError  } from 'rxjs';
-
-
+import { People } from '../interfaces/people';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,23 +8,26 @@ import { Observable, of, throwError  } from 'rxjs';
 })
 export class HomePage {
   films: any[] = [];
-
+  peoples: People[] = [];
   constructor(private http: StartWarsService) {
-    this.getAllFilms('films');
+    this.getAllFilms();
+    this.getAllPeople();
   }
 
-  ionViewDidLoad() {
-    this.getAllFilms('films');
+  getAllFilms() {
+    this.http.getAllFilms().subscribe(films => {
+      this.films = films;
+    }, (error) => {
+      console.log(error);
+    }
+    );
   }
-  getAllFilms(films: String) {
-    this.http.getApiData(`${films}`)
-    .subscribe((data) => { /*success*/
-      console.log(data);
-      this.films = data;
-    },
-    (error) => {
+
+  getAllPeople() {
+    this.http.getAllPeople().subscribe(peoples => {
+      this.peoples = peoples;
+    }, (error) => {
       console.log(error);
     });
   }
-
 }
