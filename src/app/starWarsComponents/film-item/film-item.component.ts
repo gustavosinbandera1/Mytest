@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./film-item.component.scss']
 })
 export class FilmItemComponent implements OnInit {
-
+  isActive = false;
   constructor() { }
 
   ngOnInit() {
