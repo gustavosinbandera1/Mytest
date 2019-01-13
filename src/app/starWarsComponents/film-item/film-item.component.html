@@ -1,19 +1,13 @@
 <div class="item-container">  
     <mat-card>
-        <mat-card-header>
-            <mat-card-title>Protagonistas</mat-card-title>
-            <mat-card-subtitle>Subtitle</mat-card-subtitle>
+        <mat-card-header class="title">
+            <mat-card-title  class="test2"> {{film.title}}</mat-card-title> 
         </mat-card-header>
-        <img matCardImage src="Card wide image source">
         <mat-card-content>
-            <h2>hola</h2>
+            <div class='test'>
+                <img  matCardImage src="../../../assets/images/Attack_of_the_Clones.jpg">
+            </div>    
         </mat-card-content>
-        <mat-card-actions align="start">
-            <button mat-button (click)="isActive = !isActive">Action1</button>
-        </mat-card-actions>
-        <mat-card-footer>
-            Footer
-        </mat-card-footer>
     </mat-card>
 </div>
 

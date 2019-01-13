@@ -1,4 +1,4 @@
-export interface Film {
+export class  Film {
     characters: string[];
     url: string;
     title: string;
@@ -13,5 +13,4 @@ export interface Film {
     producer: string;
     release_date: string;
     vehicles: string[];
-
 }

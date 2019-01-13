@@ -1,37 +1,17 @@
 <div class="main">
   <mat-toolbar color="warn">
     <mat-toolbar-row>
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        color="primary"
-      >
+      <button type="button" aria-label="Toggle sidenav"
+        mat-icon-button (click)="drawer.toggle()" color="primary">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><img src="./assets/devglan.png"/></span>
+      <!-- <span><img src="./assets/devglan.png"/></span> -->
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="example-container">
     <mat-sidenav #drawer mode="side"  role="navigation">
-      <mat-nav-list>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
-        <app-film-item></app-film-item>
+      <mat-nav-list *ngFor='let film of films'>
+        <app-film-item [film] = 'film'></app-film-item>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

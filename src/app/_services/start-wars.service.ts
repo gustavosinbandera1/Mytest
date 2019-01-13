@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { People } from '../interfaces/people';
-
+import { Film } from '../interfaces/film';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,8 @@ export class StartWarsService {
   getAllPeople(): Observable<People[]> {
     return this.getApiData('people');
   }
-  getAllFilms(): Observable<any[]> {
+  getAllFilms(): Observable<Film[]> {
+    console.log('buscando films .....');
     return this.getApiData('films');
   }
 
