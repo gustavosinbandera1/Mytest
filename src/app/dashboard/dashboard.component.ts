@@ -23,9 +23,9 @@ export class DashboardComponent implements OnInit {
     public dialog: MatDialog) {
     this.getAllFilms();
     this.tabsConfig = [
-      {icon: 'thumb_up', link: 'Films', title: 'Films'},
-      {icon: 'thumb_up', link: 'stzarShips', title: 'StarShips'},
-      {icon: 'thumb_up', link: 'Vehicles', title: 'Vehicles'}
+      {icon: 'high_quality', link: 'Films', title: 'Films'},
+      {icon: 'collections_b', link: 'stzarShips', title: 'StarShips'},
+      {icon: 'crop_original', link: 'Vehicles', title: 'Vehicles'}
     ];
   }
 
@@ -76,5 +76,9 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+  getActiveTap(index) {
+    console.log('el tap cambio');
+    console.log(index);
   }
 }
