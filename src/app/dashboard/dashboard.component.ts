@@ -2,18 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { StartWarsService } from '../_services/start-wars.service';
 import { People } from '../interfaces/people';
 import { Film } from '../interfaces/film';
+import { DialogComponent } from '../starWarsComponents/dialog/dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  films: Film[];
-  peoples: People[] = [];
-  selectedFilm: Film;
-  constructor(private http: StartWarsService) {
-  this.getAllFilms();
-  this.getAllPeople();
+  films: Film[]; /*store all film on API */
+  selectedFilm: Film = Film[0] || {};
+  actors: string[]; /*to store actors for any film*/
+  actorsData: People[];
+  show = true;
+
+  constructor(
+    private http: StartWarsService,
+    public dialog: MatDialog) {
+    this.getAllFilms();
   }
 
   ngOnInit() {
@@ -21,23 +27,48 @@ export class DashboardComponent implements OnInit {
 
   getAllFilms() {
     this.http.getAllFilms().subscribe(films => {
-      console.log('los films');
-      console.log(films);
       this.films = films;
-      console.log(this.films);
     }, (error) => {
-      console.log('error');
       console.log(error);
     }
     );
   }
 
-  getAllPeople() {
-    this.http.getAllPeople().subscribe(peoples => {
-      this.peoples = peoples;
-    }, (error) => {
-      console.log(error);
-    });
+  onSelectFilm(film: Film) {
+    this.selectedFilm = film;
+    this.actors =  this.getPeopleByFilm(film);
+    this.actorsData =  this.getDetailActors(this.actors);
   }
 
+  getPeopleByFilm(film: Film): string[]  {
+    return film.characters;
+  }
+
+  getDetailActors(actors: string[]): People[] {
+    const actorsDetail: People[] = [];
+    for (const actor of actors) {
+       const id: string = new URL(actor).pathname.split('/')[3] ;
+      this.http.getPerson(id).subscribe(person => {
+        actorsDetail.push(person);
+      }, (error) => {
+        console.log(error);
+      });
+    }
+    return actorsDetail;
+  }
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+   dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+    id: 1,
+    title: ' Angular For Beginners'
+    };
+    const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log( 'Dialog was closed' );
+      console.log(result);
+    });
+  }
 }

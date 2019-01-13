@@ -1,3 +1,5 @@
-<p>
-  people-item works!
-</p>
+<div *ngIf="person" >
+  <ion-item-divider (click)='clickActor(person)'>      
+    {{person.name}}
+  </ion-item-divider>
+</div>

@@ -5,55 +5,25 @@
         mat-icon-button (click)="drawer.toggle()" color="primary">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <button type="button" mat-icon-button (click)="openModal()"
+       color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
       <!-- <span><img src="./assets/devglan.png"/></span> -->
     </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-container">
     <mat-sidenav #drawer mode="side"  role="navigation">
-      <mat-nav-list *ngFor='let film of films'>
-        <app-film-item [film] = 'film'></app-film-item>
-      </mat-nav-list>
+      <div>
+        <mat-nav-list>
+          <app-film-list (onClickFilm)='onSelectFilm($event)'></app-film-list>
+        </mat-nav-list>
+      </div>
     </mat-sidenav>
     <mat-sidenav-content>
-      <router-outlet></router-outlet> 
-     <!--  <app-people-list></app-people-list> -->
+      <!-- <router-outlet></router-outlet>  -->
+      <app-people-list [peoples] = 'actorsData'></app-people-list>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-
-<!--
-
-<div class="main">
-  <mat-toolbar color="warn">
-    <mat-toolbar-row>
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        color="primary"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span><img src="./assets/devglan.png"/></span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #drawer mode="side" opened role="navigation">
-      <mat-nav-list>
-        <a mat-list-item routerLink="/first">First Component</a>
-        <h3><a mat-list-item routerLink="/second">Second Component</a></h3>
-        <h3>holaaaa</h3>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet> 
-      <h1>hola</h1>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-
-
--->

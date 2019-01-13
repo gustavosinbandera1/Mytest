@@ -11,21 +11,28 @@ export class StartWarsService {
   private _url: any = 'https://swapi.co/api';
   constructor(private http: HttpClient) { }
   /*this method allow me get data from api rest, only pass route url param*/
-  getApiData(infoUrl): Observable<any[]> {
+  
+  /*main function in API */
+  getApiData(infoUrl): Observable<any> {
     return this.http.get<any[]>(this._url + `/${infoUrl}`)
       .pipe(
         map( (data) => {
-          return data['results'];
+          if  (data['results']) {
+            return data['results'];
+          } else {
+            return data;
+          }
         })
       );
   }
 
-  getAllPeople(): Observable<People[]> {
-    return this.getApiData('people');
-  }
+
   getAllFilms(): Observable<Film[]> {
-    console.log('buscando films .....');
     return this.getApiData('films');
+  }
+
+  getPerson(id: string): Observable<People> {
+    return this.getApiData(`people/${id}`);
   }
 
   getAllPlanets(): Observable<any[]> {
