@@ -1,9 +1,10 @@
-<mat-tab-group>
-  <mat-tab *ngFor='let tab of tabs'>
-    <ng-template mat-tab-label>
+<mat-tab-group #tabGroup (selectedTabChange)='tabChanged($event)'>
+  <mat-tab *ngFor='let tab of tabs' >
+    <ng-template mat-tab-label >
         <mat-icon class="example-tab-icon">{{tab.icon}}</mat-icon>
-        {{tab.iconText}}
+        {{tab.text}}
     </ng-template>
-    {{tab.selectTitle}}
+   <span>{{tab.title}}</span>
   </mat-tab>
-  </mat-tab-group>
+  </mat-tab-group> 
+

@@ -5,46 +5,9 @@
         mat-icon-button (click)="drawer.toggle()" color="primary">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      
       <app-tabs [tabs]='tabsConfig'></app-tabs>
-
-     <!--  <mat-tab-group>
-          <mat-tab label="Films"> Films </mat-tab>
-          <mat-tab label="StarShips"> StarShips </mat-tab>
-          <mat-tab label="Vehicles"> Vehicles </mat-tab>
-        </mat-tab-group> -->
-<!-- 
-        <mat-tab-group>
-            <mat-tab>
-              <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Films
-              </ng-template>
-              Films
-            </mat-tab>
-          
-            <mat-tab>
-              <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                StarShips
-              </ng-template>
-              StarShips
-            </mat-tab>
-          
-            <mat-tab>
-              <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Vehicles
-              </ng-template>
-          
-              Vehicles
-            </mat-tab>
-          </mat-tab-group> -->
-      <!-- <span><img src="./assets/devglan.png"/></span> -->
     </mat-toolbar-row>
   </mat-toolbar>
-
-  
 
   <mat-sidenav-container class="example-container">
     <mat-sidenav #drawer mode="side"  role="navigation">

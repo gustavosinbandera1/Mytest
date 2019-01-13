@@ -23,9 +23,9 @@ export class DashboardComponent implements OnInit {
     public dialog: MatDialog) {
     this.getAllFilms();
     this.tabsConfig = [
-      {icon: 'thumb_up', iconText: 'Films', selectTitle: 'Films'},
-      {icon: 'thumb_up', iconText: 'starShips', selectTitle: 'StarShips'},
-      {icon: 'thumb_up', iconText: 'Vehicles', selectTitle: 'Vehicles'}
+      {icon: 'thumb_up', link: 'Films', title: 'Films'},
+      {icon: 'thumb_up', link: 'stzarShips', title: 'StarShips'},
+      {icon: 'thumb_up', link: 'Vehicles', title: 'Vehicles'}
     ];
   }
 
