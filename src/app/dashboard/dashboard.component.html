@@ -23,7 +23,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <!-- <router-outlet></router-outlet>  -->
-      <app-people-list [peoples] = 'actorsData'></app-people-list>
+      <app-people-list [peoples] = 'actorsData' (onClickActor) = 'openModal($event)'></app-people-list>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

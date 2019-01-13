@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { People } from '../../interfaces/people';
 @Component({
   selector: 'app-people-list',
@@ -7,6 +7,8 @@ import { People } from '../../interfaces/people';
 })
 export class PeopleListComponent implements OnInit {
   @Input() peoples: People[] = [];
+// tslint:disable-next-line: no-output-on-prefix
+  @Output() onClickActor: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
@@ -16,6 +18,7 @@ export class PeopleListComponent implements OnInit {
   showActor(actor: People) {
     console.log('hola');
     console.log(actor);
+    this.onClickActor.emit(actor);
   }
 
 }

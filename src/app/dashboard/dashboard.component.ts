@@ -57,14 +57,23 @@ export class DashboardComponent implements OnInit {
     return actorsDetail;
   }
 
-  openModal() {
+  openModal(data) {
+    console.log('modal');
+    
+    console.log(data);
+    
     const dialogConfig = new MatDialogConfig();
    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+   /*  dialogConfig.data = {
+    name: data.name,
+    title: data.name,
+    birth_year: data.birth_year,
+    air_color: data.hair_color
+    }; */
     dialogConfig.data = {
-    id: 1,
-    title: ' Angular For Beginners'
-    };
+      data
+      };
     const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       console.log( 'Dialog was closed' );
