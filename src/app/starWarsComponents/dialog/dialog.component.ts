@@ -10,19 +10,12 @@ import { People } from '../../interfaces/people';
 })
 export class DialogComponent implements OnInit {
   date: Date;
-  person: People;
-  actor: any;
+  actor: People;
   constructor(@Inject(MAT_DIALOG_DATA) public dataModal: any) {
-   this.actor = dataModal.data;
-   console.log('el actor');
-   console.log(this.actor);
-   
-    this.actor.edited = this.formatTime(this.actor.edited); 
+    this.actor = dataModal.data;
+    this.actor.edited = this.formatTime(this.actor.edited);
     this.actor.created = this.formatTime(this.actor.created);
- 
-   //this.actor.data.edited
-               
-    }
+  }
   ngOnInit() {
   }
 
@@ -32,10 +25,6 @@ export class DialogComponent implements OnInit {
     timeString = date.getFullYear().toString() + '/';
     timeString += date.getMonth() + '/';
     timeString += date.getDay();
-    console.log('el tiempo');
-    console.log(timeString);
-    
-    
     return timeString;
   }
 }

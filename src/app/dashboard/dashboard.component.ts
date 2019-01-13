@@ -4,6 +4,7 @@ import { People } from '../interfaces/people';
 import { Film } from '../interfaces/film';
 import { DialogComponent } from '../starWarsComponents/dialog/dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,12 +15,18 @@ export class DashboardComponent implements OnInit {
   selectedFilm: Film = Film[0] || {};
   actors: string[]; /*to store actors for any film*/
   actorsData: People[];
+  tabsConfig: any = [];
   show = true;
 
   constructor(
     private http: StartWarsService,
     public dialog: MatDialog) {
     this.getAllFilms();
+    this.tabsConfig = [
+      {icon: 'thumb_up', iconText: 'Films', selectTitle: 'Films'},
+      {icon: 'thumb_up', iconText: 'starShips', selectTitle: 'StarShips'},
+      {icon: 'thumb_up', iconText: 'Vehicles', selectTitle: 'Vehicles'}
+    ];
   }
 
   ngOnInit() {
@@ -59,25 +66,15 @@ export class DashboardComponent implements OnInit {
 
   openModal(data) {
     console.log('modal');
-    
     console.log(data);
-    
     const dialogConfig = new MatDialogConfig();
-   dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-   /*  dialogConfig.data = {
-    name: data.name,
-    title: data.name,
-    birth_year: data.birth_year,
-    air_color: data.hair_color
-    }; */
     dialogConfig.data = {
       data
-      };
+    };
     const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      console.log( 'Dialog was closed' );
-      console.log(result);
     });
   }
 }

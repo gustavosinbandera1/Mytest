@@ -10,6 +10,7 @@ import { FilmListComponent } from '../starWarsComponents/film-list/film-list.com
 import { FilmItemComponent } from '../starWarsComponents/film-item/film-item.component';
 import { VehicleListComponent } from '../starWarsComponents/vehicle-list/vehicle-list.component';
 import { VehicleItemComponent} from '../starWarsComponents/vehicle-item/vehicle-item.component';
+import { TabsComponent } from '../starWarsComponents/tabs/tabs.component';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 import { DialogComponent } from '../starWarsComponents/dialog/dialog.component';
 import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
@@ -30,7 +31,8 @@ import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
     FilmListComponent,
     FilmItemComponent,
     VehicleItemComponent,
-    VehicleListComponent],
+    VehicleListComponent
+  ],
   declarations: [
     DashboardComponent,
     PeopleListComponent,
@@ -39,7 +41,9 @@ import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
     FilmItemComponent,
     VehicleItemComponent,
     VehicleListComponent,
-    DialogComponent],
+    DialogComponent,
+    TabsComponent
+  ],
     entryComponents: [
       DialogComponent
     ]
