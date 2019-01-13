@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-list.component.scss']
 })
 export class VehicleListComponent implements OnInit {
-
+  @Input() vehicles: any;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickVehicle(vehicle) {
+
   }
 
 }

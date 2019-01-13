@@ -4,14 +4,16 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { People } from '../interfaces/people';
 import { Film } from '../interfaces/film';
+
 @Injectable({
   providedIn: 'root'
 })
 export class StartWarsService {
+
   private _url: any = 'https://swapi.co/api';
   constructor(private http: HttpClient) { }
   /*this method allow me get data from api rest, only pass route url param*/
-  
+
   /*main function in API */
   getApiData(infoUrl): Observable<any> {
     return this.http.get<any[]>(this._url + `/${infoUrl}`)
@@ -26,7 +28,6 @@ export class StartWarsService {
       );
   }
 
-
   getAllFilms(): Observable<Film[]> {
     return this.getApiData('films');
   }
@@ -35,9 +36,10 @@ export class StartWarsService {
     return this.getApiData(`people/${id}`);
   }
 
-  getAllPlanets(): Observable<any[]> {
-    return this.getApiData('planets');
+  getAllVehicles(): Observable<any[]> {
+    return this.getApiData('vehicles');
   }
+
   getAllStarShips(): Observable<any[]> {
     return this.getApiData('starships');
   }

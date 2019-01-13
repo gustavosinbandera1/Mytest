@@ -11,6 +11,8 @@ import { FilmItemComponent } from '../starWarsComponents/film-item/film-item.com
 import { VehicleListComponent } from '../starWarsComponents/vehicle-list/vehicle-list.component';
 import { VehicleItemComponent} from '../starWarsComponents/vehicle-item/vehicle-item.component';
 import { TabsComponent } from '../starWarsComponents/tabs/tabs.component';
+import { StarshipItemComponent } from '../starWarsComponents/starship-item/starship-item.component';
+import { StarshipListComponent } from '../starWarsComponents/starship-list/starship-list.component';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 import { DialogComponent } from '../starWarsComponents/dialog/dialog.component';
 import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
@@ -41,6 +43,8 @@ import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
     FilmItemComponent,
     VehicleItemComponent,
     VehicleListComponent,
+    StarshipListComponent,
+    StarshipItemComponent,
     DialogComponent,
     TabsComponent
   ],

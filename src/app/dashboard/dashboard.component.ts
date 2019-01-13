@@ -11,20 +11,26 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
   films: Film[]; /*store all film on API */
+  starShips: any[];
+  vehicles: any[];
   selectedFilm: Film = Film[0] || {};
   actors: string[]; /*to store actors for any film*/
   actorsData: People[];
   tabsConfig: any = [];
-  show = true;
+  activeTab: any = 0;  /*to know actual selected tab*/
 
   constructor(
     private http: StartWarsService,
     public dialog: MatDialog) {
     this.getAllFilms();
+    this.getAllStarShips();
+    this.getAllVehicles();
+
     this.tabsConfig = [
       {icon: 'high_quality', link: 'Films', title: 'Films'},
-      {icon: 'collections_b', link: 'stzarShips', title: 'StarShips'},
+      {icon: 'collections_b', link: 'starShips', title: 'StarShips'},
       {icon: 'crop_original', link: 'Vehicles', title: 'Vehicles'}
     ];
   }
@@ -41,6 +47,20 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  getAllStarShips() {
+    this.http.getAllStarShips().subscribe(starShips => {
+      this.starShips = starShips;
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
+  getAllVehicles() {
+    this.http.getAllVehicles().subscribe(vehicles => {
+      this.vehicles = vehicles;
+    });
+  }
+
   onSelectFilm(film: Film) {
     this.selectedFilm = film;
     this.actors =  this.getPeopleByFilm(film);
@@ -54,7 +74,7 @@ export class DashboardComponent implements OnInit {
   getDetailActors(actors: string[]): People[] {
     const actorsDetail: People[] = [];
     for (const actor of actors) {
-       const id: string = new URL(actor).pathname.split('/')[3] ;
+      const id: string = new URL(actor).pathname.split('/')[3] ;
       this.http.getPerson(id).subscribe(person => {
         actorsDetail.push(person);
       }, (error) => {
@@ -77,8 +97,9 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  getActiveTap(index) {
-    console.log('el tap cambio');
-    console.log(index);
+
+  getActiveTap(indexTab: any) {
+    this.activeTab = indexTab;
+    console.log(indexTab);
   }
 }

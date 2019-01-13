@@ -1,10 +1,7 @@
 import {
   Component,
   OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ChangeDetectionStrategy
+  Input
 } from '@angular/core';
 import { Film } from 'src/app/interfaces/film';
 

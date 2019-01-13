@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-starship-item',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./starship-item.component.scss']
 })
 export class StarshipItemComponent implements OnInit {
-
+  @Input() starShip: any;
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+

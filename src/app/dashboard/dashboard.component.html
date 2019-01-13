@@ -13,12 +13,14 @@
     <mat-sidenav #drawer mode="side"  role="navigation">
       <div>
         <mat-nav-list>
-          <app-film-list (onClickFilm)='onSelectFilm($event)'></app-film-list>
+          <app-film-list *ngIf='activeTab == 0' [films]='films' (onClickFilm)='onSelectFilm($event)'></app-film-list>
+          <app-starship-list *ngIf='activeTab == 1' [starShips]='starShips'></app-starship-list>
+          <app-vehicle-list *ngIf='activeTab == 2' [vehicles]='vehicles'></app-vehicle-list><!--only for demostration ngIf use-->
         </mat-nav-list>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <app-people-list [peoples]='actorsData' (onClickActor)='openModal($event)'></app-people-list>
+    <mat-sidenav-content >
+      <app-people-list *ngIf='activeTab == 0' [peoples]='actorsData' (onClickActor)='openModal($event)'></app-people-list>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
