@@ -7,9 +7,8 @@
     
     .mat-card-title {
         font-size: 12px;
-        /* display: table-caption; */
     }
-    .test {
+     .contentImg {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,17 +16,14 @@
         margin: -10px;
     }
     
-    .test img {
+    .contentImg img {
         height: 100px;
         min-height: 100%;
         margin-bottom: 0px;
     }
-    
+     
     
     .title {
         justify-content: center;
     }
     
-    .test2 {
-        margin: -16px;
-    }
