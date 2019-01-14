@@ -6,11 +6,20 @@
 .films {
     background-color: #a195a1;
 }
+.films ul li ol {
+    background-color: lightgray;
+}
 
 .starships {
     background-color: rgb(241, 241, 224);
 }
-
+.starships ul li ol {
+    background-color: wheat;
+}
 .vehicles {
     background-color: rgb(127, 206, 209);
+}
+
+.vehicles ul li ol {
+    background-color: powderblue;
 }

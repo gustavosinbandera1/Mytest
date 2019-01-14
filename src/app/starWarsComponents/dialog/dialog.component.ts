@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { People } from '../../interfaces/people';
 
 
 @Component({
@@ -34,11 +33,11 @@ export class DialogComponent implements OnInit {
   }
 
   isArray(obj: any ) {
-    console.log('la clave es');
-    console.log(obj);
-    
-    
     return Array.isArray(obj);
+ }
+
+ navigate(url) {
+   window.open(url);
  }
 }
 

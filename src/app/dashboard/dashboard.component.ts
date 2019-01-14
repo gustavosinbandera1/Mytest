@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private http: StartWarsService,
     public dialog: MatDialog) {
-      
+
     this.tabsConfig = [
       {icon: 'high_quality', link: 'Films', title: 'Films'},
       {icon: 'collections_b', link: 'starShips', title: 'StarShips'},

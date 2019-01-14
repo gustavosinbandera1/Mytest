@@ -1,18 +1,16 @@
 <div class="main">
-  <mat-toolbar color="warn">
+  <mat-toolbar >
     <mat-toolbar-row>
         <button type="button" aria-label="Toggle sidenav"
         mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon style="color:white" aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <app-tabs [tabs]='tabsConfig' (tabChange)='getActiveTap($event)'></app-tabs>
     </mat-toolbar-row>
-    
   </mat-toolbar>
   
-
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #drawer mode="side"  role="navigation">
+    <mat-sidenav #drawer mode="side" opened role="navigation">
       <div>
         <mat-nav-list>
           <app-list *ngIf='activeTab == 0' [datas]='films' [imgUrl]='imgUrl[0]' (onClickItem)='onSelectFilm($event)'></app-list>
