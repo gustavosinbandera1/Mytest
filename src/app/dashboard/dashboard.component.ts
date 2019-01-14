@@ -12,11 +12,16 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 })
 export class DashboardComponent implements OnInit {
 
-  films: Film[]; /*store all film on API */
-  starShips: any[];
-  vehicles: any[];
-  actors: string[]; /*to store actors for any film*/
-  actorsData: any[];
+  films: Film[] = []; /*store all film on API */
+  starShips: any[] = []; /*store all starShips on API */
+  vehicles: any[] = []; /*store all vehicles on API */
+
+  actorsData: any[] = []; /*to store information about actors on film */
+
+  filmsData: any[] = []; /*to store films info get with url films*/
+  vehiclesData: any[] = [];
+
+
   tabsConfig: any = [];
   activeTab: any = 0;  /*to know actual selected tab*/
   imgUrl: string[] = [
@@ -67,56 +72,32 @@ export class DashboardComponent implements OnInit {
   }
 
   onSelectFilm(film: Film) {
-    this.actors =  this.getPeopleByFilm(film);//save url people
-    this.actorsData =  this.getDetailActors(this.actors);
+    this.actorsData =  this.getUrlDetails(film.characters, 'people');
+  }
+
+  onSelectStarShip(starship: any) {
+    this.filmsData = this.getUrlDetails(starship.films, 'films');
   }
 
   onSelectVehicle(vehicle: any) {
-
+    this.vehiclesData = this.getUrlDetails(vehicle.films, 'films');
   }
 
-  onSelectStarShip() {
+  getUrlDetails(urls: string[], route: string): any[] {
+    const itemsDetail: any[] = [];
 
-  }
-
-  getPeopleByFilm(film: Film): string[]  {
-    return film.characters;
-  }
-
-  /* getDetailActors(actors: string[]) {
-    const IdArray: any[] = [];
-
-    for (const actor of actors) {
-      const id: string = new URL(actor).pathname.split('/')[3] ;
-      IdArray.push(id);
-    }
-
-    this.http.getPersons(IdArray).subscribe(persons => {
-      console.log('las personas');
-      console.log(this.actorsData);
-    }, (error) => {
-      console.log(error);
-    });
-  } */
-
-
-
-  getDetailActors(actors: string[]): People[] {
-    const actorsDetail: People[] = [];
-    for (const actor of actors) {
-      const id: string = new URL(actor).pathname.split('/')[3] ;
-      this.http.getPerson(id).subscribe(person => {
-        actorsDetail.push(person);
+    for (const url of urls) {
+      const id: string = new URL(url).pathname.split('/')[3] ;
+      this.http.getDataById(id, route).subscribe(data => {
+        itemsDetail.push(data);
       }, (error) => {
         console.log(error);
       });
     }
-    return actorsDetail;
+    return itemsDetail;
   }
 
   openModal(data: any, type: number) {
-    console.log('modal');
-    console.log(data);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -130,6 +111,5 @@ export class DashboardComponent implements OnInit {
 
   getActiveTap(indexTab: any) {
     this.activeTab = indexTab;
-    console.log(indexTab);
   }
 }

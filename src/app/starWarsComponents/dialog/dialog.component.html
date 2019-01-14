@@ -1,24 +1,8 @@
 <h2 mat-dialog-title>{{actor.name}}</h2>
 <mat-dialog-content>
-  <ul>
-    <li><span>Height: </span>{{actor.height}}</li>
-    <li><span>Mass: </span>{{actor.mass}}</li>
-    <li><span>Hair_Color: </span>{{actor.hair_color}}</li>
-    <li><span>Skin_Color: </span>{{actor.skin_color}}</li>
-    <li><span>Edited: </span>{{actor.edited}}</li>
-    <li><span>Eye_color: </span>{{actor.eye_color}}</li>
-    <li><span>Birth_Year: </span>{{actor.birth_year}}</li>
-    <li><span>Gender: </span>{{actor.gender}}</li>
-    <li><span>Homeworld: </span>{{actor.homeworld}}</li>
-    <div *ngFor='let specie of actor.species'>
-      <li><span>Species: </span>{{specie}}</li>
-    </div>
-    
-    <li><span>Created: </span>{{actor.created}}</li>
-    <li><span>Edited: </span>{{actor.edited}} </li>
-    <li><span>Url: </span>{{actor.url}}</li> 
-</ul>
-
+  <ul *ngFor='let key of objectKeys(actor)'>
+    <li><span>{{key}}:</span>{{actor[key]}}</li>
+  </ul>
 </mat-dialog-content>
 
 <mat-dialog-actions>

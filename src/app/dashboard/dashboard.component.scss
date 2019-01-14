@@ -6,9 +6,8 @@
 }
 
 .mat-sidenav {
-    background-color: gray;
+    background-color: dimgray;
     width: 10em;
-    color: red;
 }
 .mat-nav-list {
     padding: 4px;
@@ -16,4 +15,9 @@
 
 .mat-nav-list:last-child {
     margin-bottom: 30px; 
+}
+
+.mat-toolbar-row {
+    /*justify-content: center;*/
+    background-color: rgba(14, 9, 9, 0.6);
 }

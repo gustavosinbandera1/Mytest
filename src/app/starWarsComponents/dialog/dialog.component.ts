@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { People } from '../../interfaces/people';
 
 
@@ -11,16 +11,13 @@ import { People } from '../../interfaces/people';
 export class DialogComponent implements OnInit {
   date: Date;
   actor: People;
-  type: number;
+  type: number; /*0=films  information 1= starships information 2= vehicles information */
+  objectKeys = Object.keys;
   constructor(@Inject(MAT_DIALOG_DATA) public dataModal: any) {
     this.actor = dataModal.data;
     this.type = dataModal.type;
     this.actor.edited = this.formatTime(this.actor.edited);
     this.actor.created = this.formatTime(this.actor.created);
-    console.log('modal valor');
-    console.log(this.type);
-    
-    
   }
   ngOnInit() {
   }

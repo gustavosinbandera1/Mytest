@@ -1,44 +1,45 @@
 <div class="main">
   <mat-toolbar color="warn">
     <mat-toolbar-row>
-      <button type="button" aria-label="Toggle sidenav"
-        mat-icon-button (click)="drawer.toggle()" color="primary">
+        <button type="button" aria-label="Toggle sidenav"
+        mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <app-tabs [tabs]='tabsConfig' (tabChange)='getActiveTap($event)'></app-tabs>
     </mat-toolbar-row>
+    
   </mat-toolbar>
+  
 
   <mat-sidenav-container class="example-container">
     <mat-sidenav #drawer mode="side"  role="navigation">
       <div>
         <mat-nav-list>
           <app-list *ngIf='activeTab == 0' [datas]='films' [imgUrl]='imgUrl[0]' (onClickItem)='onSelectFilm($event)'></app-list>
-          <app-list *ngIf='activeTab == 1' [datas]='starShips' [imgUrl]='imgUrl[1]' (onClickItem)='onSelectStarShip($event)'></app-list>
+           <app-list *ngIf='activeTab == 1' [datas]='starShips' [imgUrl]='imgUrl[1]' (onClickItem)='onSelectStarShip($event)'></app-list>
           <app-list *ngIf='activeTab == 2' [datas]='vehicles' [imgUrl]='imgUrl[2]' (onClickItem)='onSelectVehicle($event)'></app-list>
-        </mat-nav-list>
+           </mat-nav-list>
       </div>
     </mat-sidenav>
     <mat-sidenav-content >
-     <!--  <app-people-list *ngIf='activeTab == 0' [peoples]='actorsData' (onClickActor)='openModal($event)'></app-people-list> -->
-           <app-list 
+            <app-list 
               *ngIf='activeTab == 0' 
               [datas]='actorsData' 
               [imgUrl]='imgUrl[3]' 
               (onClickItem)='openModal($event,0)'>
-            </app-list> 
-            <app-list 
+            </app-list>  
+             <app-list 
             *ngIf='activeTab == 1' 
-            [datas]='actorsData' 
+            [datas]='filmsData' 
             [imgUrl]='imgUrl[4]' 
             (onClickItem)='openModal($event,1)'>
           </app-list> 
           <app-list 
           *ngIf='activeTab == 2' 
-          [datas]='actorsData' 
+          [datas]='vehiclesData' 
           [imgUrl]='imgUrl[5]' 
           (onClickItem)='openModal($event,2)'>
-        </app-list> 
+        </app-list>   
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
