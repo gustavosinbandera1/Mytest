@@ -4,19 +4,12 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../_materialModule/material.module';
 import { DashboardComponent } from './dashboard.component';
-import { PeopleListComponent } from '../starWarsComponents/people-list/people-list.component';
-import { PeopleItemComponent } from '../starWarsComponents/people-item/people-item.component';
-import { FilmListComponent } from '../starWarsComponents/film-list/film-list.component';
-import { FilmItemComponent } from '../starWarsComponents/film-item/film-item.component';
-import { VehicleListComponent } from '../starWarsComponents/vehicle-list/vehicle-list.component';
-import { VehicleItemComponent} from '../starWarsComponents/vehicle-item/vehicle-item.component';
 import { TabsComponent } from '../starWarsComponents/tabs/tabs.component';
-import { StarshipItemComponent } from '../starWarsComponents/starship-item/starship-item.component';
-import { StarshipListComponent } from '../starWarsComponents/starship-list/starship-list.component';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 import { DialogComponent } from '../starWarsComponents/dialog/dialog.component';
-import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
-
+import { MatFormFieldModule } from '@angular/material';
+import { ItemComponent } from '../starWarsComponents/item/item.component';
+import { ListComponent } from '../starWarsComponents/list/list.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,25 +21,15 @@ import { MatFormFieldModule, MatDialogConfig } from '@angular/material';
   ],
   exports: [
     DashboardComponent,
-    PeopleListComponent,
-    PeopleItemComponent,
-    FilmListComponent,
-    FilmItemComponent,
-    VehicleItemComponent,
-    VehicleListComponent
+    ItemComponent,
+    ListComponent
   ],
   declarations: [
     DashboardComponent,
-    PeopleListComponent,
-    PeopleItemComponent,
-    FilmListComponent,
-    FilmItemComponent,
-    VehicleItemComponent,
-    VehicleListComponent,
-    StarshipListComponent,
-    StarshipItemComponent,
     DialogComponent,
-    TabsComponent
+    TabsComponent,
+    ItemComponent,
+    ListComponent
   ],
     entryComponents: [
       DialogComponent

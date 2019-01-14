@@ -1,9 +1,10 @@
 import { Injectable, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { People } from '../interfaces/people';
 import { Film } from '../interfaces/film';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,28 @@ export class StartWarsService {
     return this.getApiData('films');
   }
 
-  getPerson(id: string): Observable<People> {
+  getPerson(id: any): Observable<any> {
     return this.getApiData(`people/${id}`);
   }
+ /*
+ getPersons(ids: any[]): Observable<any> {
+   let params = new HttpParams();
+   params = params.append('ids', JSON.stringify(ids));
+  return this.http.get<any[]>(this._url + `/people/`, {params})
+  .pipe(
+    map( (data) => {
+      if  (data['results']) {
+        console.log('la respuesta en service');
+        console.log(data);
+        return data['results'];
+      } else {
+        console.log('la respuesta en service');
+        console.log(data);
+        return data;
+      }
+    })
+  );
+ }*/
 
   getAllVehicles(): Observable<any[]> {
     return this.getApiData('vehicles');

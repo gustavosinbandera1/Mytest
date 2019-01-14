@@ -15,9 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { StartWarsService } from './_services/start-wars.service';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   entryComponents: [],
   imports: [
