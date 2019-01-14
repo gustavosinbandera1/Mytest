@@ -26,19 +26,19 @@
               *ngIf='activeTab == 0' 
               [datas]='actorsData' 
               [imgUrl]='imgUrl[3]' 
-              (onClickItem)='openModal($event,0)'>
+              (onClickItem)='openModal($event, "films")'>
             </app-list>  
              <app-list 
             *ngIf='activeTab == 1' 
             [datas]='filmsData' 
             [imgUrl]='imgUrl[4]' 
-            (onClickItem)='openModal($event,1)'>
+            (onClickItem)='openModal($event,"starships")'>
           </app-list> 
           <app-list 
           *ngIf='activeTab == 2' 
           [datas]='vehiclesData' 
           [imgUrl]='imgUrl[5]' 
-          (onClickItem)='openModal($event,2)'>
+          (onClickItem)='openModal($event,"vehicles")'>
         </app-list>   
     </mat-sidenav-content>
   </mat-sidenav-container>

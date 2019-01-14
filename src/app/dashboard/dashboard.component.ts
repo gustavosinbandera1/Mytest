@@ -35,9 +35,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private http: StartWarsService,
     public dialog: MatDialog) {
-    this.getAllFilms();
-    this.getAllStarShips();
-    this.getAllVehicles();
+      
     this.tabsConfig = [
       {icon: 'high_quality', link: 'Films', title: 'Films'},
       {icon: 'collections_b', link: 'starShips', title: 'StarShips'},
@@ -46,6 +44,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllFilms();
+    this.getAllStarShips();
+    this.getAllVehicles();
   }
 
   getAllFilms() {
@@ -97,7 +98,7 @@ export class DashboardComponent implements OnInit {
     return itemsDetail;
   }
 
-  openModal(data: any, type: number) {
+  openModal(data: any, type: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

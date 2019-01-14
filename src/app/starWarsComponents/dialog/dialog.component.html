@@ -1,11 +1,20 @@
-<h2 mat-dialog-title>{{actor.name}}</h2>
-<mat-dialog-content>
-  <ul *ngFor='let key of objectKeys(actor)'>
-    <li><span>{{key}}:</span>{{actor[key]}}</li>
+<div class='dialogTitle'  class="mat-elevation-z4"> <h2 >{{data.name || data.title}}</h2></div>
+<mat-dialog-content class="mat-elevation-z4"  [ngClass]='type'>
+  <ul *ngFor='let key of objectKeys(data)'>
+    <li><span>{{key}}:</span>
+      <span *ngIf='!isArray(data[key]); else next'>{{data[key]}}</span>
+      <ng-template #next>
+        <ol *ngFor='let subitem of data[key]'>{{subitem}}</ol>
+      </ng-template>
+       
+    </li>
+     <!-- <div *ngIf='isArray(data[key])'>
+      <ol *ngFor='let subitem of data[key]'>{{subitem}}</ol> 
+     </div> -->
   </ul>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-   <button mat-button mat-dialog-close>No</button>
- <button mat-button [mat-dialog-close]='true'>Yes</button>
+  <!--  <button mat-button mat-dialog-close>No</button> -->
+ <button mat-button [mat-dialog-close]='true'>Ok</button>
 </mat-dialog-actions>

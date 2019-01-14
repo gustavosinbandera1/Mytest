@@ -10,14 +10,16 @@ import { People } from '../../interfaces/people';
 })
 export class DialogComponent implements OnInit {
   date: Date;
-  actor: People;
-  type: number; /*0=films  information 1= starships information 2= vehicles information */
+  data: any; /*data in modal*/
+  type: string; /*films,starships, vehicles to change background modal */
   objectKeys = Object.keys;
+
   constructor(@Inject(MAT_DIALOG_DATA) public dataModal: any) {
-    this.actor = dataModal.data;
+    this.data = dataModal.data;
     this.type = dataModal.type;
-    this.actor.edited = this.formatTime(this.actor.edited);
-    this.actor.created = this.formatTime(this.actor.created);
+
+    this.data.edited = this.formatTime(this.data.edited);
+    this.data.created = this.formatTime(this.data.created);
   }
   ngOnInit() {
   }
@@ -30,6 +32,14 @@ export class DialogComponent implements OnInit {
     timeString += date.getDay();
     return timeString;
   }
+
+  isArray(obj: any ) {
+    console.log('la clave es');
+    console.log(obj);
+    
+    
+    return Array.isArray(obj);
+ }
 }
 
 
