@@ -25,19 +25,19 @@
               *ngIf='activeTab == 0' 
               [datas]='actorsData' 
               [imgUrl]='imgUrl[3]' 
-              (onClickItem)='openModal($event)'>
+              (onClickItem)='openModal($event,0)'>
             </app-list> 
             <app-list 
             *ngIf='activeTab == 1' 
             [datas]='actorsData' 
             [imgUrl]='imgUrl[4]' 
-            (onClickItem)='openModal($event)'>
+            (onClickItem)='openModal($event,1)'>
           </app-list> 
           <app-list 
           *ngIf='activeTab == 2' 
           [datas]='actorsData' 
           [imgUrl]='imgUrl[5]' 
-          (onClickItem)='openModal($event)'>
+          (onClickItem)='openModal($event,2)'>
         </app-list> 
     </mat-sidenav-content>
   </mat-sidenav-container>

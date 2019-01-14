@@ -114,14 +114,14 @@ export class DashboardComponent implements OnInit {
     return actorsDetail;
   }
 
-  openModal(data) {
+  openModal(data: any, type: number) {
     console.log('modal');
     console.log(data);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      data
+      data, type
     };
     const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {

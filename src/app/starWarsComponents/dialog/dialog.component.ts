@@ -11,10 +11,16 @@ import { People } from '../../interfaces/people';
 export class DialogComponent implements OnInit {
   date: Date;
   actor: People;
+  type: number;
   constructor(@Inject(MAT_DIALOG_DATA) public dataModal: any) {
     this.actor = dataModal.data;
+    this.type = dataModal.type;
     this.actor.edited = this.formatTime(this.actor.edited);
     this.actor.created = this.formatTime(this.actor.created);
+    console.log('modal valor');
+    console.log(this.type);
+    
+    
   }
   ngOnInit() {
   }
